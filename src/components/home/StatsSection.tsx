@@ -9,7 +9,7 @@ export function StatsSection({ variant = "grid" }: StatsSectionProps) {
   if (variant === "bar") {
     return (
       <section className="masco-gradient px-6 py-14 text-white lg:px-16">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 md:gap-0 md:divide-x md:divide-white/15">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 md:grid-cols-4 md:gap-0 md:divide-x md:divide-white/15">
           {stats.map((stat) => {
             const Icon = statIcons[stat.label];
             return (
@@ -22,8 +22,8 @@ export function StatsSection({ variant = "grid" }: StatsSectionProps) {
                     <Icon className="h-5 w-5" strokeWidth={1.75} />
                   </div>
                 )}
-                <p className="text-2xl font-bold sm:text-3xl md:text-4xl">{stat.value}</p>
-                <p className="mt-2 text-balance text-[11px] uppercase tracking-[0.15em] text-white/75">
+                <p className="text-3xl font-bold md:text-4xl">{stat.value}</p>
+                <p className="mt-2 text-[11px] uppercase tracking-[0.15em] text-white/75">
                   {stat.label}
                 </p>
               </div>
@@ -37,7 +37,7 @@ export function StatsSection({ variant = "grid" }: StatsSectionProps) {
   if (variant === "inline") {
     return (
       <section className="border-y border-masco-navy/10 bg-white px-6 py-10 lg:px-16">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 md:grid-cols-4">
           {stats.map((stat) => {
             const Icon = statIcons[stat.label];
             return (
@@ -69,7 +69,7 @@ export function StatsSection({ variant = "grid" }: StatsSectionProps) {
             By the Numbers
           </p>
         </div>
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-4">
           {stats.map((stat) => {
             const Icon = statIcons[stat.label];
             return (

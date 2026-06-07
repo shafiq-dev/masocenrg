@@ -26,13 +26,13 @@ export default function SplitHomePage() {
       />
 
       <section className="border-b border-masco-navy/10 bg-masco-navy/[0.04] px-6 py-12 lg:px-16">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 md:grid-cols-4">
           {stats.map((stat) => {
             const Icon = statIcons[stat.label];
             return (
               <div
                 key={stat.label}
-                className="flex items-center gap-4 rounded-[20px] bg-white p-4 shadow-sm md:p-6"
+                className="flex items-center gap-4 rounded-[20px] bg-white p-6 shadow-sm"
               >
                 {Icon && <IconBox icon={Icon} variant="light" />}
                 <div>

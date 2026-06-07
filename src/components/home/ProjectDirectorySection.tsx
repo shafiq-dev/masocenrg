@@ -89,8 +89,8 @@ function ProjectCard({
           <span>{project.location}</span>
           <span className="font-bold text-masco-blue">{project.year}</span>
         </div>
-        <div className="mt-3 flex min-w-0 items-center justify-between gap-2">
-          <span className="min-w-0 truncate text-xs font-bold text-masco-navy/70">
+        <div className="mt-3 flex items-center justify-between gap-2">
+          <span className="text-xs font-bold text-masco-navy/70">
             {project.partner}
           </span>
           <ArrowUpRight

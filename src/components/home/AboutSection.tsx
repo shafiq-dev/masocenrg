@@ -68,7 +68,7 @@ export function AboutSection({ layout = "centered" }: AboutSectionProps) {
               src={images.about}
               alt="Corporate team at work"
               aspect="portrait"
-              className="lg:sticky lg:top-24 shadow-lg"
+              className="sticky top-24 shadow-lg"
             />
           </div>
         </div>

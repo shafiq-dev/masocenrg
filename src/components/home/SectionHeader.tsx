@@ -39,7 +39,7 @@ export function SectionHeader({
               {eyebrow}
             </p>
           </div>
-          <h2 className="mt-4 text-2xl font-bold leading-tight text-masco-navy sm:text-3xl md:text-4xl lg:text-[2.75rem]">
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-masco-navy md:text-4xl lg:text-[2.75rem]">
             {title}
           </h2>
           {description && (

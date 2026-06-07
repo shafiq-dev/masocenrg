@@ -75,9 +75,9 @@ export function SiteFooter() {
               Headquarters
             </p>
             <ul className="mt-4 space-y-4 text-sm text-masco-black/65">
-              <li className="flex min-w-0 items-center gap-3">
+              <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-masco-blue" strokeWidth={1.75} />
-                <span className="break-all lg:break-normal">{company.email}</span>
+                {company.email}
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-masco-blue" strokeWidth={1.75} />
@@ -113,7 +113,7 @@ export function SiteFooter() {
           <p className="text-xs uppercase tracking-[0.15em] text-masco-black/40">
             © 2026 MASCO Energy. Kingdom of Saudi Arabia.
           </p>
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-masco-black/40 lg:flex-nowrap lg:gap-6">
+          <div className="flex gap-6 text-xs text-masco-black/40">
             <span>Privacy Policy</span>
             <span>Terms of Use</span>
             <span>Cookie Policy</span>

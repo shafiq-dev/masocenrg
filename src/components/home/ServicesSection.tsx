@@ -99,7 +99,7 @@ export function ServicesSection({ layout = "grid" }: ServicesSectionProps) {
                 <p className="mt-3 text-sm leading-relaxed text-masco-black/60">
                   {service.description}
                 </p>
-                <div className="mt-6 flex flex-col gap-3 border-t border-masco-navy/10 pt-4 lg:flex-row lg:items-center lg:justify-between lg:gap-4">
+                <div className="mt-6 flex items-center justify-between gap-4 border-t border-masco-navy/10 pt-4">
                   <p className="text-xs font-bold uppercase tracking-[0.15em] text-masco-blue">
                     {service.metric}
                   </p>

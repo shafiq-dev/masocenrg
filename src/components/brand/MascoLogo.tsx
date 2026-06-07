@@ -8,11 +8,7 @@ type MascoLogoProps = {
 };
 
 const sizes = {
-  xs: {
-    width: 176,
-    height: 64,
-    className: "h-9 w-auto max-w-[120px] lg:h-14 lg:max-w-[176px]",
-  },
+  xs: { width: 176, height: 64, className: "h-14 w-auto max-w-[176px]" },
   sm: { width: 104, height: 40, className: "h-9 w-auto max-w-[104px]" },
   md: { width: 140, height: 52, className: "h-12 w-auto max-w-[140px]" },
   lg: { width: 180, height: 68, className: "h-16 w-auto max-w-[180px]" },
