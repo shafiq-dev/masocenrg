@@ -28,10 +28,15 @@
   --font-sans: var(--font-bukra);
 }
 
+html {
+  overflow-x: clip;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-bukra), Arial, Helvetica, sans-serif;
+  overflow-x: clip;
 }
 
 a,
@@ -72,6 +77,16 @@ a[aria-disabled="true"] {
   transform: translateY(-4px);
   border-color: rgb(22 145 207 / 0.35);
   box-shadow: 0 20px 40px -24px rgb(19 72 128 / 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masco-card {
+    transition: none;
+  }
+
+  .masco-card:hover {
+    transform: none;
+  }
 }
 
 .masco-surface {

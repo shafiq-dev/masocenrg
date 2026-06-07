@@ -11,7 +11,7 @@ export default function MainPage() {
     <div className="flex min-h-screen flex-col bg-white">
       <SiteHeader />
 
-      <section className="masco-surface border-b border-masco-navy/10 px-6 py-12 lg:px-16 lg:py-16">
+      <section className="masco-surface border-b border-masco-navy/10 px-4 py-10 sm:px-6 sm:py-12 lg:px-16 lg:py-16">
         <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Design Exploration"
@@ -21,7 +21,7 @@ export default function MainPage() {
         </div>
       </section>
 
-      <main className="flex-1 px-6 py-12 lg:px-16">
+      <main className="flex-1 px-4 py-10 sm:px-6 sm:py-12 lg:px-16 lg:py-12">
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 xl:grid-cols-3">
           {homeVariants.map((variant, index) => (
             <Link

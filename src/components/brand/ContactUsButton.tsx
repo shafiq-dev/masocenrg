@@ -30,7 +30,7 @@ export function ContactUsButton({ compact = false }: { compact?: boolean }) {
         className={`masco-gradient shrink-0 cursor-pointer rounded-[20px] font-bold text-white transition-opacity hover:opacity-90 ${
           compact
             ? "px-3 py-1.5 text-[11px] sm:text-xs"
-            : "px-4 py-2.5 text-xs sm:px-5 sm:text-sm"
+            : "min-h-11 px-4 py-2.5 text-xs sm:px-5 sm:text-sm"
         }`}
       >
         Contact Us
@@ -38,7 +38,7 @@ export function ContactUsButton({ compact = false }: { compact?: boolean }) {
 
       {open && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] flex items-end justify-center overflow-y-auto p-4 lg:items-center lg:overflow-visible"
           role="dialog"
           aria-modal="true"
           aria-labelledby="contact-modal-title"
@@ -50,7 +50,7 @@ export function ContactUsButton({ compact = false }: { compact?: boolean }) {
             onClick={() => setOpen(false)}
           />
 
-          <div className="relative z-10 w-full max-w-lg rounded-[20px] bg-white p-8 shadow-xl">
+          <div className="relative z-10 my-auto w-full max-w-lg max-h-[90dvh] overflow-y-auto rounded-[20px] bg-white p-5 shadow-xl lg:max-h-none lg:overflow-visible lg:p-8">
             <button
               type="button"
               onClick={() => setOpen(false)}
