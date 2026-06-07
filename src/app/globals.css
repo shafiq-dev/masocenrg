@@ -105,3 +105,23 @@ a[aria-disabled="true"] {
     linear-gradient(90deg, rgb(19 72 128 / 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
 }
+
+.masco-desktop-nav {
+  display: none;
+}
+
+.masco-mobile-nav {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .masco-desktop-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .masco-mobile-nav {
+    display: none;
+  }
+}

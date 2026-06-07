@@ -12,7 +12,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-11 max-w-7xl items-center justify-between gap-3">
         <MascoLogo href="/main" size="xs" className="relative z-10 shrink-0" />
 
-        <div className="hidden items-center gap-2 md:gap-4 lg:flex">
+        <div className="masco-desktop-nav gap-2 md:gap-4">
           <nav className="flex items-center gap-0.5 md:gap-3">
             {headerNavItems.map((item) => (
               <Link
@@ -27,7 +27,9 @@ export function SiteHeader() {
           <ContactUsButton compact />
         </div>
 
-        <MobileNav items={headerNavItems} />
+        <div className="masco-mobile-nav">
+          <MobileNav items={headerNavItems} />
+        </div>
       </div>
     </header>
   );

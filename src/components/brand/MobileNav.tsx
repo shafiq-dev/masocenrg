@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { ContactUsButton } from "@/components/brand/ContactUsButton";
+import { MascoLogo } from "@/components/brand/MascoLogo";
 
 type NavItem = {
   label: string;
@@ -30,39 +31,34 @@ export function MobileNav({ items }: { items: NavItem[] }) {
   }, [open]);
 
   return (
-    <div className="lg:hidden">
+    <>
       <button
         type="button"
-        className="flex h-11 w-11 items-center justify-center rounded-[20px] text-masco-navy transition-colors hover:bg-masco-navy/5"
+        className="flex h-11 w-11 items-center justify-center rounded-[20px] border border-masco-navy/10 text-masco-navy transition-colors hover:bg-masco-navy/5"
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         aria-controls="mobile-nav-panel"
-        onClick={() => setOpen((current) => !current)}
+        onClick={() => setOpen(true)}
       >
-        {open ? (
-          <X className="h-5 w-5" strokeWidth={1.75} />
-        ) : (
-          <Menu className="h-5 w-5" strokeWidth={1.75} />
-        )}
+        <Menu className="h-5 w-5" strokeWidth={1.75} />
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-[60]">
+        <div className="fixed inset-0 z-[100]">
           <button
             type="button"
-            className="absolute inset-0 bg-masco-black/40"
+            className="absolute inset-0 bg-masco-black/50"
             aria-label="Close menu"
             onClick={() => setOpen(false)}
           />
 
           <nav
             id="mobile-nav-panel"
-            className="absolute inset-x-0 top-0 flex max-h-[100dvh] flex-col overflow-y-auto bg-white px-4 pb-6 pt-[calc(3.75rem+env(safe-area-inset-top))] shadow-xl"
+            className="absolute inset-y-0 right-0 flex w-[min(100vw,20rem)] max-w-full flex-col overflow-y-auto bg-white shadow-2xl"
+            style={{ paddingTop: "max(0.75rem, env(safe-area-inset-top))" }}
           >
-            <div className="mb-4 flex items-center justify-between border-b border-masco-navy/10 pb-4">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-masco-blue">
-                Menu
-              </p>
+            <div className="flex items-center justify-between border-b border-masco-navy/10 px-4 py-3">
+              <MascoLogo href="/main" size="xs" />
               <button
                 type="button"
                 onClick={() => setOpen(false)}
@@ -73,13 +69,13 @@ export function MobileNav({ items }: { items: NavItem[] }) {
               </button>
             </div>
 
-            <ul className="space-y-1">
+            <ul className="flex-1 px-3 py-4">
               {items.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="flex min-h-11 items-center rounded-[20px] px-4 text-sm font-bold text-masco-black/75 transition-colors hover:bg-masco-navy/5 hover:text-masco-navy"
+                    className="flex min-h-12 items-center rounded-[20px] px-4 text-base font-bold text-masco-navy transition-colors hover:bg-masco-navy/5"
                   >
                     {item.label}
                   </Link>
@@ -87,12 +83,12 @@ export function MobileNav({ items }: { items: NavItem[] }) {
               ))}
             </ul>
 
-            <div className="mt-6 border-t border-masco-navy/10 pt-6">
+            <div className="border-t border-masco-navy/10 px-4 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
               <ContactUsButton />
             </div>
           </nav>
         </div>
       )}
-    </div>
+    </>
   );
 }
