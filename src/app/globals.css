@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+  --masco-navy: #134880;
+  --masco-blue: #1691cf;
+  --masco-black: #111111;
+  --masco-white: #ffffff;
+  --masco-radius: 20px;
+  --masco-gradient: linear-gradient(
+    to right,
+    #134880 0%,
+    #134880 10%,
+    #1691cf 90%,
+    #1691cf 100%
+  );
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-masco-navy: var(--masco-navy);
+  --color-masco-blue: var(--masco-blue);
+  --color-masco-black: var(--masco-black);
+  --color-masco-white: var(--masco-white);
+  --radius-masco: var(--masco-radius);
+  --font-sans: var(--font-bukra);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-bukra), Arial, Helvetica, sans-serif;
+}
+
+a,
+button,
+[role="button"],
+label[for],
+summary {
+  cursor: pointer;
+}
+
+button:disabled,
+a[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.masco-gradient {
+  background: var(--masco-gradient);
+}
+
+.masco-gradient-text {
+  background: var(--masco-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.masco-card {
+  border: 1px solid rgb(19 72 128 / 0.1);
+  border-radius: var(--masco-radius);
+  background: var(--masco-white);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.masco-card:hover {
+  transform: translateY(-4px);
+  border-color: rgb(22 145 207 / 0.35);
+  box-shadow: 0 20px 40px -24px rgb(19 72 128 / 0.35);
+}
+
+.masco-surface {
+  background:
+    linear-gradient(180deg, rgb(19 72 128 / 0.03) 0%, transparent 100%),
+    var(--masco-white);
+}
+
+.masco-surface-tint {
+  background-color: rgb(19 72 128 / 0.04);
+}
+
+.masco-grid-bg {
+  background-image:
+    linear-gradient(rgb(19 72 128 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(19 72 128 / 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
