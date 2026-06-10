@@ -105,3 +105,44 @@ a[aria-disabled="true"] {
     linear-gradient(90deg, rgb(19 72 128 / 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
 }
+
+.masco-kpi-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.masco-kpi-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgb(255 255 255 / 0.06) 50%,
+    transparent 60%
+  );
+  animation: masco-shimmer 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes masco-shimmer {
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masco-kpi-shimmer::after {
+    animation: none;
+  }
+}
+
+@media (hover: hover) and (min-width: 1024px) {
+  .masco-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}

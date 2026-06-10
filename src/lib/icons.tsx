@@ -2,10 +2,10 @@ import {
   BadgeCheck,
   Briefcase,
   Building2,
-  Calendar,
   CircleHelp,
   Factory,
   FolderKanban,
+  Globe2,
   Handshake,
   Home,
   Info,
@@ -18,6 +18,7 @@ import {
   Rocket,
   Search,
   ShieldCheck,
+  Target,
   TrendingUp,
   Users,
   Wrench,
@@ -48,12 +49,21 @@ export const processIcons: Record<string, LucideIcon> = {
   "Commissioning & Handover": Rocket,
 };
 
-export const statIcons: Record<string, LucideIcon> = {
-  "Employees in KSA": Users,
-  "Founded as MASCO Energy": Calendar,
-  "EPCM · Hybrid Models": FolderKanban,
-  "Kingdom Aligned": BadgeCheck,
+export const kpiIcons: Record<string, LucideIcon> = {
+  workforce: Users,
+  projects: FolderKanban,
+  contract: Briefcase,
+  safety: ShieldCheck,
+  delivery: Target,
+  saudi: BadgeCheck,
+  capacity: Zap,
+  partners: Handshake,
+  regions: Globe2,
+  vision2030: TrendingUp,
 };
+
+/** @deprecated Use kpiIcons with stat.id */
+export const statIcons: Record<string, LucideIcon> = kpiIcons;
 
 export const navIcons: Record<string, LucideIcon> = {
   Home,

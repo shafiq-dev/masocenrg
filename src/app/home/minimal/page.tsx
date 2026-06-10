@@ -4,6 +4,7 @@ import { AboutSection } from "@/components/home/AboutSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { ProjectDirectorySection } from "@/components/home/ProjectDirectorySection";
 import { HeroBanner } from "@/components/home/HeroBanner";
+import { MinimalMetricRail } from "@/components/home/MinimalMetricRail";
 import { ProcessSection } from "@/components/home/ProcessSection";
 import { SectionHeader } from "@/components/home/SectionHeader";
 import { SectionShell } from "@/components/home/SectionShell";
@@ -12,6 +13,9 @@ import { StatsSection } from "@/components/home/StatsSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { pillars, aboutParagraphs } from "@/lib/home-content";
 import { IconBox, pillarIcons } from "@/lib/icons";
+import { pillarMetrics } from "@/lib/metrics";
+import { AnimateIn } from "@/components/metrics/AnimateIn";
+import { CountUp } from "@/components/metrics/CountUp";
 
 export default function MinimalHomePage() {
   return (
@@ -26,9 +30,10 @@ export default function MinimalHomePage() {
         primaryCta={{ label: "Our Story", href: "#about" }}
       />
 
-      <StatsSection variant="inline" />
+      <MinimalMetricRail />
+      <StatsSection variant="inline" theme="minimal" />
       <AboutSection layout="editorial" />
-      <ServicesSection layout="list" />
+      <ServicesSection layout="list" showMetrics />
 
       <SectionShell className="border-t border-masco-navy/10 bg-white">
         <SectionHeader
@@ -37,20 +42,41 @@ export default function MinimalHomePage() {
           description="The principles driving MASCO Energy's commitment to quality, safety, Vision 2030, and digital innovation."
         />
         <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {pillars.map((pillar) => {
+          {pillars.map((pillar, index) => {
             const Icon = pillarIcons[pillar.title];
+            const metric = pillarMetrics[pillar.title];
             return (
-              <article key={pillar.title} className="masco-card flex gap-4 p-6">
-                {Icon && <IconBox icon={Icon} variant="light" size="lg" />}
-                <div>
-                  <h3 className="text-lg font-bold text-masco-navy">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-masco-black/65">
-                    {pillar.text}
-                  </p>
-                </div>
-              </article>
+              <AnimateIn key={pillar.title} delay={index * 0.08}>
+                <article className="masco-card flex gap-4 p-6">
+                  {Icon && <IconBox icon={Icon} variant="light" size="lg" />}
+                  <div>
+                    <h3 className="text-lg font-bold text-masco-navy">
+                      {pillar.title}
+                    </h3>
+                    {metric && (
+                      <div className="mt-2">
+                        <CountUp
+                          metric={{
+                            id: pillar.title,
+                            value: metric.value,
+                            suffix: metric.suffix,
+                            prefix: metric.prefix,
+                            decimals: metric.decimals,
+                            label: metric.caption,
+                          }}
+                          className="text-lg font-bold text-masco-blue"
+                        />
+                        <p className="text-xs text-masco-black/50">
+                          {metric.caption}
+                        </p>
+                      </div>
+                    )}
+                    <p className="mt-3 text-sm leading-relaxed text-masco-black/65">
+                      {pillar.text}
+                    </p>
+                  </div>
+                </article>
+              </AnimateIn>
             );
           })}
         </div>

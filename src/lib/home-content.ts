@@ -1,3 +1,5 @@
+import { getKpisByIds, themeStats, type KpiMetric } from "@/lib/metrics";
+
 export const company = {
   name: "MASCO Energy",
   tagline: "Building for Better Life",
@@ -167,12 +169,35 @@ export const pillars = [
   },
 ] as const;
 
-export const stats = [
-  { value: "1,000+", label: "Employees in KSA" },
-  { value: "2023", label: "Founded as MASCO Energy" },
-  { value: "EPC", label: "EPCM · Hybrid Models" },
-  { value: "Vision 2030", label: "Kingdom Aligned" },
-] as const;
+export type StatItem = {
+  id: string;
+  value: string;
+  label: string;
+  metric: KpiMetric;
+};
+
+function toStatItems(ids: readonly string[]): StatItem[] {
+  return getKpisByIds(ids).map((metric) => ({
+    id: metric.id,
+    value: `${metric.prefix ?? ""}${
+      metric.decimals !== undefined
+        ? metric.value.toFixed(metric.decimals)
+        : metric.value.toLocaleString()
+    }${metric.suffix ?? ""}`,
+    label: metric.label,
+    metric,
+  }));
+}
+
+export const stats = toStatItems(themeStats.classic);
+
+export const statsByTheme = {
+  classic: toStatItems(themeStats.classic),
+  minimal: toStatItems(themeStats.minimal),
+  services: toStatItems(themeStats.services),
+  split: toStatItems(themeStats.split),
+  editorial: toStatItems(themeStats.editorial),
+} as const;
 
 export const faqs = [
   {

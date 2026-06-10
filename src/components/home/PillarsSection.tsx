@@ -1,5 +1,8 @@
+import { AnimateIn } from "@/components/metrics/AnimateIn";
+import { CountUp } from "@/components/metrics/CountUp";
 import { pillars } from "@/lib/home-content";
 import { IconBox, pillarIcons } from "@/lib/icons";
+import { pillarMetrics } from "@/lib/metrics";
 import { SectionHeader } from "@/components/home/SectionHeader";
 import { SectionShell } from "@/components/home/SectionShell";
 
@@ -15,25 +18,43 @@ export function PillarsSection() {
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {pillars.map((pillar, index) => {
           const Icon = pillarIcons[pillar.title];
+          const metric = pillarMetrics[pillar.title];
           return (
-            <article
-              key={pillar.title}
-              className="masco-card relative overflow-hidden p-8"
-            >
-              <div className="absolute inset-x-0 top-0 h-1 masco-gradient" />
-              <div className="flex items-start justify-between gap-4">
-                {Icon && <IconBox icon={Icon} variant="light" />}
-                <span className="text-3xl font-bold text-masco-navy/10">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <h3 className="mt-6 text-xl font-bold text-masco-navy">
-                {pillar.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-masco-black/60">
-                {pillar.text}
-              </p>
-            </article>
+            <AnimateIn key={pillar.title} delay={index * 0.08}>
+              <article className="masco-card relative h-full overflow-hidden p-8">
+                <div className="absolute inset-x-0 top-0 h-1 masco-gradient" />
+                <div className="flex items-start justify-between gap-4">
+                  {Icon && <IconBox icon={Icon} variant="light" />}
+                  <span className="text-3xl font-bold text-masco-navy/10">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-masco-navy">
+                  {pillar.title}
+                </h3>
+                {metric && (
+                  <div className="mt-3">
+                    <CountUp
+                      metric={{
+                        id: pillar.title,
+                        value: metric.value,
+                        suffix: metric.suffix,
+                        prefix: metric.prefix,
+                        decimals: metric.decimals,
+                        label: metric.caption,
+                      }}
+                      className="text-2xl font-bold text-masco-blue"
+                    />
+                    <p className="mt-1 text-xs text-masco-black/50">
+                      {metric.caption}
+                    </p>
+                  </div>
+                )}
+                <p className="mt-3 text-sm leading-relaxed text-masco-black/60">
+                  {pillar.text}
+                </p>
+              </article>
+            </AnimateIn>
           );
         })}
       </div>

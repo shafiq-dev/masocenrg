@@ -2,7 +2,9 @@ import Link from "next/link";
 import { SectionImage } from "@/components/home/SectionImage";
 import { SiteFooter } from "@/components/brand/SiteFooter";
 import { SiteHeader } from "@/components/brand/SiteHeader";
+import { EditorialMetricCallout } from "@/components/home/EditorialMetricCallout";
 import { FAQSection } from "@/components/home/FAQSection";
+import { GrowthTimelineSection } from "@/components/home/GrowthTimelineSection";
 import { HeroBanner } from "@/components/home/HeroBanner";
 import { ProcessSection } from "@/components/home/ProcessSection";
 import { ProjectDirectorySection } from "@/components/home/ProjectDirectorySection";
@@ -107,6 +109,10 @@ export default function EditorialHomePage() {
               >
                 {band.text}
               </p>
+              <EditorialMetricCallout
+                bandTitle={band.title}
+                variant={band.tone === "gradient" ? "gradient" : "light"}
+              />
             </div>
             <SectionImage
               src={band.image}
@@ -153,9 +159,10 @@ export default function EditorialHomePage() {
         </div>
       </section>
 
-      <ServicesSection layout="grid" />
+      <GrowthTimelineSection />
+      <ServicesSection layout="grid" showMetrics />
       <ProjectDirectorySection />
-      <StatsSection variant="bar" />
+      <StatsSection variant="bar" theme="editorial" />
       <ProcessSection />
       <TestimonialsSection layout="quote" />
       <FAQSection variant="minimal" />

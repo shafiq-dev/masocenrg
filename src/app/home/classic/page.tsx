@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/brand/SiteHeader";
 import { AboutSection } from "@/components/home/AboutSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { HeroBanner } from "@/components/home/HeroBanner";
+import { MetricsDashboardSection } from "@/components/home/MetricsDashboardSection";
 import { PillarsSection } from "@/components/home/PillarsSection";
 import { ProcessSection } from "@/components/home/ProcessSection";
 import { ProjectDirectorySection } from "@/components/home/ProjectDirectorySection";
@@ -25,9 +26,10 @@ export default function ClassicHomePage() {
         secondaryCta={{ label: "Project Directory", href: "#projects" }}
       />
 
-      <StatsSection variant="bar" />
+      <StatsSection variant="bar" theme="classic" />
       <AboutSection layout="centered" />
-      <ServicesSection layout="cards" />
+      <MetricsDashboardSection />
+      <ServicesSection layout="cards" showMetrics />
       <ProjectDirectorySection />
       <PillarsSection />
       <ProcessSection />
